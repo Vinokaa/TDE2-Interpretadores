@@ -178,5 +178,3 @@
    S → X
    Xb → b
    ```
-   
-   Esse tipo de gramática equivale ao poder computacional de uma Máquina de Turing.
