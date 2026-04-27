@@ -43,7 +43,7 @@
 
    Tipo 3 $\subset$ Tipo 2 $\subset$ Tipo 1 $\subset$ Tipo 0
 
-   ### Gramáticas regulares (tipo 3)
+   ### Gramáticas Regulares (Tipo 3)
 
    As produções devem obedecer um dos formatos:
    
@@ -61,9 +61,10 @@
    ```
    
    Onde:
-   
+   ```
    A, B = não-terminais
    a = terminal
+   ```
 
    **Exemplo**
    
@@ -79,3 +80,103 @@
    **Derivação de aaab:**
    
    S ⇒ aS ⇒ aaS ⇒ aaaS ⇒ aaab
+
+   <br>
+
+   ### Gramáticas Livres de Contexto (Tipo 2)
+   
+   Toda regra tem formato:
+
+   ```
+   A → γ
+   ```
+   
+   Onde:
+   ```
+   A = único não-terminal
+   γ = qualquer sequência de terminais e não-terminais
+   ```
+   
+   **Exemplo**
+   
+   L = { $a^* b^*$ }
+   
+   **Gramática:**
+   ```
+   S → aSb
+   S → ab
+   ```
+   
+   **Derivação de aaabbb:**
+   
+   S ⇒ aSb ⇒ aaSbb ⇒ aaabbb
+
+   <br>
+
+   ### Gramáticas Sensíveis ao Contexto (Tipo 1)
+   
+   As regras dependem do contexto onde o símbolo aparece.
+   
+   Formato geral:
+   ```
+   αAβ → αγβ
+   ```
+   
+   Onde:
+   ```
+   A = não-terminal a ser substituído
+   α e β = contexto esquerdo e direito
+   γ ≠ ε
+   ```
+   
+   O símbolo A só pode ser substituído quando aparece cercado por α e β.
+   
+   **Exemplo**
+   
+   L = { $a^+ b^+ c^+$ }
+   
+   Essa linguagem não pode ser gerada por gramática livre de contexto.
+   
+   **Gramática:**
+   ```
+   S → aSBC | abc
+   CB → BC
+   aB → ab
+   bB → bb
+   bC → bc
+   cC → cc
+   ```
+   
+   Regras como:
+   
+   aB → ab
+   
+   Dependem do contexto: B só vira b quando vem após a.
+
+   <br>
+
+   ### Gramáticas Irrestritas (Tipo 0)
+   
+   O lado esquerdo deve conter pelo menos um não-terminal.
+   
+   Formato:
+   ```
+   α → β
+   ```
+   
+   Onde:
+   ```
+   α ∈ (N ∪ ∑)^+ contendo ao menos um não-terminal
+   β ∈ (N ∪ ∑)^*
+   ```
+   
+   **Exemplo**
+   
+   Gramática:
+   ```
+   S → aSb
+   S → X
+   Xb → b
+   ```
+   
+   Esse tipo de gramática equivale ao poder computacional de uma Máquina de Turing.
